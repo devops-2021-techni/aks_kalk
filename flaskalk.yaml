@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: website
-        image: ${{ secrets.DOCKER_REGISTRY }}
+        image: devops-2021-techni/aks_kalk
         imagePullPolicy: Always
         resources:
           requests:
