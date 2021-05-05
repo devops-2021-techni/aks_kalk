@@ -36,5 +36,5 @@ jobs:
     - uses: azure/k8s-deploy@v1
       with:
         manifests: |
-          deployment.yml
+          flaskalk.yaml
         namespace: ${{ env.NAMESPACE }}
