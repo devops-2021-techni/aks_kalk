@@ -17,7 +17,7 @@ jobs:
     - name: Push to Docker Hub
       uses: docker/build-push-action@v2
       with:
-        github-token: f03a8eeb-4f5a-4ab1-af50-f6c3759cc71c
+        github-token: ${{ secrets.DOCKER_TOKEN }}
      
     # Set the target Azure Kubernetes Service (AKS) cluster. 
     - uses: azure/aks-set-context@v1
