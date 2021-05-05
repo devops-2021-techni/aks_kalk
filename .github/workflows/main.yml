@@ -6,7 +6,7 @@ env:
   CLUSTER_NAME: tff1_test01
   CLUSTER_RESOURCE_GROUP: tff1
   APP_NAME: aks_flaskalk
-  NAMESPACE: aks_flaskalk_namespace
+  NAMESPACE: aks-flaskalk-namespace
   
 jobs:
   build:
