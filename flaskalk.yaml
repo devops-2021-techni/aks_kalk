@@ -20,7 +20,8 @@ spec:
     spec:
       containers:
       - name: website
-        image: melaen/flaskalk:multi
+        image: 7946138254/aks_kalk:latest
+        imagePullPolicy: Always
         resources:
           requests:
             cpu: 100m
