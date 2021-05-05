@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: website
-        image: 7946138254/aks_kalk:latest
+        image: ${{ secrets.DOCKER_REGISTRY }}
         imagePullPolicy: Always
         resources:
           requests:
