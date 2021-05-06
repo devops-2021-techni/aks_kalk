@@ -1,10 +1,4 @@
-name: aks_kalk
-
-on:
-  push:
-    branches:
-      - 'master'
-
+on: [push, workflow_dispatch]
 # Environment variables available to all jobs and steps in this workflow
 env:
 
