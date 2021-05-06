@@ -23,7 +23,6 @@ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-
 ---
 TERRAFORM
 ---
-
 ---------------------------------------------
 Log to Azure and configure Terraform
 ---------------------------------------------
@@ -31,9 +30,10 @@ Log to Azure and configure Terraform
 Step 1 : Login to Azure
 
 1. az login
-2. az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/b5ace221-8dbd-4bf8-8001-ca33c742b2e5"
-3. az login --service-principal -u "http://azure-cli-2021-05-05-13-28-03/" -p "ZMlW1Vp3Hj4gR0d~p5okcVx1kkd_BK0.GL" --tenant "27d29e5d-64be-4e59-a5ec-3abc413c723c"
-4. az account set --subscription="b5ace221-8dbd-4bf8-8001-ca33c742b2e5"
+2. az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription_id>"
+3. az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
+4. az account set --subscription="<subscription_id>"
+(Replace <> fields with your credentials)
 
 Step 2 : Verify Terraform version and configure
 
@@ -75,4 +75,27 @@ Step 5 : Create a Terraform output file
 -- Enter Configuration
 
 Step 6 : Set up Azure storage to store Terraform state
+
+a) Aller dans les comptes de stockage, en sélectionner un et prendre note de son nom (on en a besoin plus tard)
+b) Une fois le compte sélectionné, aller dans les clés d'accès et copier le champs "Key1"
+c) Entrez la commande ci dessous dans Azure Shell et remplacer les valeurs par celles récupérées :
+1. az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
+
+Step 7 : Create Kubernetes Cluster
+
+a) Dans le shell entrez les commandes en remplaçant les valeurs par celles récupérées précédement : 
+1. terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate"
+2. export TF_VAR_client_id=<service-principal-appid>
+3. export TF_VAR_client_secret=<service-principal-password>
+4. terraform plan -out out.plan
+5. terraform apply out.plan
+
+Step 8 : Test Kubernetes Cluster
+
+1. echo "$(terraform output kube_config)" > ./azurek8s
+2. export KUBECONFIG=./azurek8s
+3. kubectl get nodes
+-- S'il n'y a aucuns nodes, c'est qu'il y a une erreur et il faut donc inspecter tous les fichiers de conf pour trouver cette/ces erreur(s).
+
+
 
