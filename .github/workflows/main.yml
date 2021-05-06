@@ -52,3 +52,4 @@ jobs:
           manifests: |
             flaskalk.yaml
           namespace: ${{ env.NAMESPACE }}
+          force: true

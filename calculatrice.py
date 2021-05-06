@@ -4,8 +4,6 @@ import pika, uuid, json
 
 app = Flask(__name__)
 
-def addition(Number1, Number2):
-    return Number1 + Number2
 
 class GetMessage(object):
 
@@ -46,7 +44,7 @@ class GetMessage(object):
 @app.route('/')
 def index():
 
-    return "Dernier resultat EDITH:"
+    return "Dernier resultat new deploy:"
 
 @app.route('/add/<int:add1>/<int:add2>')
 def add(add1,add2):
