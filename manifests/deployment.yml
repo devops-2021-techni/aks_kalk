@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "tff1test01-ad47"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "tff1test01-ad47"
+  template:
+    metadata:
+      labels:
+        app: "tff1test01-ad47"
+    spec:
+      containers:
+        - name: "tff1test01-ad47"
+          image: "flaskalkcicd.azurecr.io/tff1test01"
+          ports:
+          - containerPort: 5000
