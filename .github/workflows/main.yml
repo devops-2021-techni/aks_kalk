@@ -32,7 +32,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: techni2021devops/aks_kalk:latest
+          tags: techni2021devops/aks_kalk:v3
 
      
       # Set the target Azure Kubernetes Service (AKS) cluster. 
