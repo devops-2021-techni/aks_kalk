@@ -19,7 +19,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-        repository: malaria/aks_kalk:latest
+        repository: techni2021devops/aks_kalk:latest
      
     # Set the target Azure Kubernetes Service (AKS) cluster. 
     - uses: azure/aks-set-context@v1
