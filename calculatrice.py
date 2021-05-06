@@ -46,7 +46,7 @@ class GetMessage(object):
 @app.route('/')
 def index():
 
-    return "Dernier resultat :"
+    return "Dernier resultat EDITH:"
 
 @app.route('/add/<int:add1>/<int:add2>')
 def add(add1,add2):
