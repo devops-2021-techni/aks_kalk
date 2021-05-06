@@ -9,7 +9,7 @@ spec:
       app: website
   minReadySeconds: 10
   strategy:
-    type: RollingUpdate
+    type: Recreate
     rollingUpdate:
       maxUnavailable: 1
       maxSurge: 1
