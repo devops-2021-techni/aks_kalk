@@ -48,12 +48,12 @@ def index():
 
     return "Dernier resultat : test update "
 
-@app.route('/hello/<prenom>/<nom>')
-def hello(prenom,nom):
+@app.route('/add/<int:add1>/<int:add2>')
+def hello(add1,add2):
     SayHello = GetMessage()
 
         
-    data_to_convert={"firstname": prenom, "surname": nom}
+    data_to_convert={"term1": add1, "term2": add2}
 
     terms_additions_json_to_send = json.dumps(data_to_convert)
 
