@@ -49,7 +49,7 @@ def index():
     return "Dernier resultat : test update bis 5"
 
 @app.route('/add/<int:add1>/<int:add2>')
-def hello(add1,add2):
+def add(add1,add2):
     SayHello = GetMessage()
 
         
