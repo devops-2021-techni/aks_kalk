@@ -62,6 +62,13 @@ def add(add1,add2):
 
     return result
 
+@app.route('/hello/')
+def hello():
+    return "hello"
+
+@app.coucou('/coucou/')
+def coucou():
+    return "coucou"
 
     
 
