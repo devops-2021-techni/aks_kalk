@@ -46,7 +46,7 @@ class GetMessage(object):
 @app.route('/')
 def index():
 
-    return "Dernier resultat : test update bis 5"
+    return "Dernier resultat :"
 
 @app.route('/add/<int:add1>/<int:add2>')
 def add(add1,add2):
@@ -62,15 +62,7 @@ def add(add1,add2):
 
     return result
 
-@app.route('/hello/')
-def hello():
-    return "hello"
-
-@app.coucou('/coucou/')
-def coucou():
-    return "coucou"
-
-    
+ 
 
 
 if __name__ == '__main__':
