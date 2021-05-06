@@ -46,7 +46,7 @@ class GetMessage(object):
 def index():
 
 
-    return "result"
+    return "Bienvenue sur notre super additionnieuse flaskalk. <br>Allez sur add/nb1/nb2 pour additionner et sur /history pour voir tous les beaux calculs qui ont étés fait !"
 
 @app.route('/add/<int:add1>/<int:add2>')
 def add(add1,add2):
@@ -68,14 +68,11 @@ def history():
     DoMath = GetMessage()
 
         
-    data_to_convert={"term1": "2", "term2": "3"}
+  
 
-    terms_additions_json_to_send = json.dumps(data_to_convert)
+    result = DoMath.call("","get_history")
 
-
-    result = DoMath.call(terms_additions_json_to_send,"get_history")
-
-    return result
+    return "Les dernières opérations du coté client : <br> {}".format(result)
 
 
 if __name__ == '__main__':
