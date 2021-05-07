@@ -72,7 +72,7 @@ def history():
 
     result = DoMath.call("","get_history")
 
-    return "Les dernières opérations du coté client : <br> {}".format(result)
+    return "Les dernières opérations du coté client en version 5: <br> {}".format(result)
 
 
 if __name__ == '__main__':

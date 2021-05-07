@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: website
-        image: techni2021devops/aks_kalk:v4
+        image: techni2021devops/aks_kalk:v5
         imagePullPolicy: Always
         resources:
           requests:
